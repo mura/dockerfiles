@@ -1,0 +1,18 @@
+name: cacti-backend ci
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'cacti/backend/**'
+  workflow_dispatch:
+
+jobs:
+  docker-publish:
+    uses: ./.github/workflows/docker-publish-ghcr.yml
+    with:
+      context: ./cacti/backend
+      platforms: linux/amd64
+      tags: ghcr.io/${{ github.repository_owner }}/cacti-backend:latest
+    secrets: inherit
