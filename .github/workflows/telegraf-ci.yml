@@ -1,0 +1,17 @@
+name: telegraf ci
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'telegraf/**'
+  workflow_dispatch:
+
+jobs:
+  docker-publish:
+    uses: ./.github/workflows/docker-publish-ghcr.yml
+    with:
+      context: ./telegraf
+      tags: ghcr.io/${{ github.repository_owner }}/telegraf:latest
+    secrets: inherit
