@@ -40,10 +40,10 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: {{ inputs.context }}
-          platforms: {{ inputs.platforms }}
+          context: ${{ inputs.context }}
+          platforms: ${{ inputs.platforms }}
           push: true
-          tags: {{ inputs.tags }}
+          tags: ${{ inputs.tags }}
       -
         name: Image digest
         run: echo ${{ steps.docker-build.outputs.digest }}
