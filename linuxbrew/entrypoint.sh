@@ -8,7 +8,7 @@ create_user () {
     return
   fi
 
-  [ -f /app/initialize.sh ] && source /app/initialize.sh
+  [[ -f /app/initialize.sh ]] && source /app/initialize.sh
   if [[ -z "$HOMEDIR" ]]; then
     export HOMEDIR="/home/$LOGIN"
   fi
@@ -18,10 +18,10 @@ create_user () {
 
 create_user
 
-if [ ! -f "/etc/ssh/sshd_config" ];then
+if [[ ! -f "/etc/ssh/sshd_config" ]];then
   cp -rp /app/ssh/* /etc/ssh/
 fi
-if [ ! -f "/etc/ssh/ssh_host_rsa_key" ]; then
+if [[ ! -f "/etc/ssh/ssh_host_rsa_key" ]]; then
   ssh-keygen -A
 fi
 exec /usr/sbin/sshd -D
