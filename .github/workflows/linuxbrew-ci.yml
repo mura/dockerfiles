@@ -1,0 +1,16 @@
+name: linuxbrew ci
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'linuxbrew/**'
+
+jobs:
+  docker-publish:
+    uses: ./.github/workflows/docker-publish-ghcr.yml@main
+    with:
+      context: ./linuxbrew
+      tags: ghcr.io/${{ github.repository_owner }}/linuxbrew:latest
+    secrets: inherit
