@@ -1,0 +1,44 @@
+version: '3'
+services:
+  backend:
+    image: ghcr.io/mura/cacti-backend:latest
+    container_name: cacti-backend
+    expose:
+      - 9000
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - ./conf/backend/config.php:/var/www/html/cacti/include/config.php:ro
+      - ./conf/backend/spine.conf:/app/spine.conf:ro
+      - ./conf/backend/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+      - ./conf/backend/php.ini:/usr/local/etc/php/conf.d/php.ini:ro
+      - ${VOLUME_CACTI}:/var/www/html/cacti:rw
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:10
+    container_name: cacti-mariadb
+    expose:
+      - 3306
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+     - ./conf/mariadb/mariadb.cnf:/etc/mysql/mariadb.cnf:ro
+     - ${VOLUME_MARIADB}:/var/lib/mysql:rw
+
+  frontend:
+    image: nginx:stable
+    container_name: cacti-frontend
+    ports:
+      - 18080:18080
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - ./conf/frontend/frontend.conf:/etc/nginx/conf.d/frontend.conf:ro
+      - ${VOLUME_CACTI}:/var/www/html/cacti:ro
+    depends_on:
+      - backend

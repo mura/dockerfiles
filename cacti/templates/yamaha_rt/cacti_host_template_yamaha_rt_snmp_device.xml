@@ -1,0 +1,7 @@
+<cacti>	
+	<hash_020102e877942b4e41b48caf5cbc8306ddd0f7>
+		<name>YAMAHA RT SNMP Device</name>
+		<graph_templates>hash_000102cd8d52f25b080c482485b61b236a433f|hash_000102ab37cbed8610deeffbb20dc1fe57b330|hash_00010229f39e0ab69ff44138fdef2058c4dd00</graph_templates>
+		<data_queries>hash_040102d75e406fdeca4fcef45b8be3a9a63cbc|hash_040102b9b8d29be162e04c892fbf320bea316f</data_queries>
+	</hash_020102e877942b4e41b48caf5cbc8306ddd0f7>
+</cacti>

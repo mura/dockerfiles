@@ -1,0 +1,55 @@
+<interface>
+	<name>Get ASUSTOR Monitored Disks</name>
+	<oid_index>.1.3.6.1.4.1.44738.4.1.1.1</oid_index>
+	<index_order>diskID:diskModel:diskIndex</index_order>
+	<index_order_type>numeric</index_order_type>
+	<index_title_format>|chosen_order_field|</index_title_format>
+
+	<fields>
+		<diskIndex>
+			<name>Index</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.44738.4.1.1.1</oid>
+		</diskIndex>
+		<diskID>
+			<name>ID</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.44738.4.1.1.2</oid>
+		</diskID>
+		<diskModel>
+			<name>Model</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.44738.4.1.1.3</oid>
+		</diskModel>
+		<diskType>
+			<name>Type</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.44738.4.1.1.4</oid>
+		</diskType>
+
+
+		<diskStatus>
+			<name>Status</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input-output</direction>
+			<oid>.1.3.6.1.4.1.44738.4.1.1.5</oid>
+		</diskStatus>
+
+		<diskTemperature>
+			<name>Temperature</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.44738.4.1.1.6</oid>
+		</diskTemperature>
+	</fields>
+</interface>

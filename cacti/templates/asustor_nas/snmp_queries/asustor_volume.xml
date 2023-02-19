@@ -1,0 +1,61 @@
+<interface>
+	<name>Get ASUSTOR Monitored Volumes</name>
+	<oid_index>.1.3.6.1.4.1.44738.5.1.1.1</oid_index>
+	<index_order>volumeName:volumeIndex</index_order>
+	<index_order_type>numeric</index_order_type>
+	<index_title_format>|chosen_order_field|</index_title_format>
+
+	<fields>
+		<volumeIndex>
+			<name>Index</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.44738.5.1.1.1</oid>
+		</volumeIndex>
+		<volumeName>
+			<name>Name</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.44738.5.1.1.2</oid>
+		</volumeName>
+		<volumeLevel>
+			<name>Level</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.44738.5.1.1.3</oid>
+		</volumeLevel>
+		<volumeFileSystem>
+			<name>FileSystem</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input</direction>
+			<oid>.1.3.6.1.4.1.44738.5.1.1.5</oid>
+		</volumeFileSystem>
+
+		<volumeStatus>
+			<name>Status</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>input-output</direction>
+			<oid>.1.3.6.1.4.1.44738.5.1.1.4</oid>
+		</volumeStatus>
+
+		<volumeTotalSize>
+			<name>Total Space</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.44738.5.1.1.6</oid>
+		</volumeTotalSize>
+		<volumeFreeSize>
+			<name>Free Space</name>
+			<method>walk</method>
+			<source>value</source>
+			<direction>output</direction>
+			<oid>.1.3.6.1.4.1.44738.5.1.1.7</oid>
+		</volumeFreeSize>
+	</fields>
+</interface>
