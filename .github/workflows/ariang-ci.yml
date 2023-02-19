@@ -8,6 +8,9 @@ on:
       - 'ariang/**'
   workflow_dispatch:
 
+permissions:
+  packages: write
+
 jobs:
   docker-publish:
     uses: ./.github/workflows/docker-publish-ghcr.yml
