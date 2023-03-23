@@ -1,4 +1,4 @@
-FROM golang:1.16-bullseye as build
+FROM golang:1.20-bullseye as build
 
 RUN set -eux; \
     \
@@ -15,7 +15,7 @@ RUN set -eux; \
     \
     export GOPATH=/work; \
     export CGO_ENABLED=0; \
-    go get github.com/mattn/goreman
+    go install github.com/mattn/goreman@latest
 
 FROM debian:bullseye-slim
 
