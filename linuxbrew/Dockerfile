@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 RUN <<EOF
   apt-get update

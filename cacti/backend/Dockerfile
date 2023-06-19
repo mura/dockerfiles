@@ -1,4 +1,4 @@
-FROM docker.io/php:8.2-fpm-bullseye
+FROM docker.io/php:8.2-fpm-bookworm
 
 ENV CACTI_URL="https://files.cacti.net/cacti/linux/cacti-1.2.24.tar.gz"
 ENV SPINE_URL="https://files.cacti.net/spine/cacti-spine-1.2.24.tar.gz"

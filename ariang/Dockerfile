@@ -1,4 +1,4 @@
-FROM golang:1.20-bullseye as build
+FROM golang:1.20-bookworm as build
 
 RUN set -eux; \
     \
