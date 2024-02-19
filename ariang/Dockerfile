@@ -1,4 +1,4 @@
-FROM golang:1.20-bookworm as build
+FROM golang:1.22-bookworm as build
 
 RUN set -eux; \
     \
@@ -36,7 +36,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 # build aria2
-ENV ARIA2_URL=https://github.com/aria2/aria2/releases/download/release-1.36.0/aria2-1.36.0.tar.xz
+ENV ARIA2_URL=https://github.com/aria2/aria2/releases/download/release-1.37.0/aria2-1.37.0.tar.xz
 RUN set -eux; \
     \
     savedAptMark="$(apt-mark showmanual)"; \
