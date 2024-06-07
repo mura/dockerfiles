@@ -1,7 +1,7 @@
-FROM docker.io/php:8.2-fpm-bookworm
+FROM docker.io/php:8.3-fpm-bookworm
 
-ENV CACTI_URL="https://files.cacti.net/cacti/linux/cacti-1.2.26.tar.gz"
-ENV SPINE_URL="https://files.cacti.net/spine/cacti-spine-1.2.26.tar.gz"
+ENV CACTI_URL="https://files.cacti.net/cacti/linux/cacti-1.2.27.tar.gz"
+ENV SPINE_URL="https://files.cacti.net/spine/cacti-spine-1.2.27.tar.gz"
 
 # persistent / runtime deps
 RUN set -eux; \
