@@ -17,7 +17,7 @@ RUN set -eux; \
     export CGO_ENABLED=0; \
     go install github.com/mattn/goreman@latest
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 # customizable values
 ENV RPC_PORT 6800
