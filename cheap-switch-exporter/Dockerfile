@@ -43,4 +43,4 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s \
   CMD wget -q -O- http://localhost:8080/metrics || exit 1
 
-CMD ["cheap-switch-exporter"]
+CMD ["/app/cheap-switch-exporter"]
