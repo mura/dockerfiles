@@ -1,0 +1,18 @@
+name: cheap-switch-exporter ci
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'cheap-switch-exporter/**'
+  workflow_dispatch:
+
+jobs:
+  docker-publish:
+    uses: ./.github/workflows/docker-publish-ghcr.yml
+    with:
+      context: ./cheap-switch-exporter
+      platforms: linux/amd64
+      tags: ghcr.io/${{ github.repository_owner }}/cheap-switch-exporter:latest
+    secrets: inherit
