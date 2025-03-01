@@ -14,7 +14,7 @@ WORKDIR /build
 
 RUN <<EOF
 set -eux
-git clone https://github.com/pvelati/cheap-switch-exporter.git src
+git clone https://github.com/mura/cheap-switch-exporter.git src
 cd src
 go mod download
 go mod verify
@@ -32,7 +32,7 @@ RUN <<EOF
 set -eux
 apt-get update
 apt-get install -y --no-install-recommends \
-    wget
+    curl
 rm -rf /var/lib/apt/lists/*
 EOF
 
@@ -41,6 +41,6 @@ COPY --from=build /build/src/cheap-switch-exporter /app/cheap-switch-exporter
 EXPOSE 8080
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s \
-  CMD wget -q -O- http://localhost:8080/metrics || exit 1
+  CMD curl --fail -I http://localhost:8080/metrics || exit 1
 
 CMD ["/app/cheap-switch-exporter"]
