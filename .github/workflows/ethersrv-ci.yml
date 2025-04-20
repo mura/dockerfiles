@@ -1,0 +1,17 @@
+name: ethersrv ci
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'ethersrv/**'
+  workflow_dispatch:
+
+jobs:
+  docker-publish:
+    uses: ./.github/workflows/docker-publish-ghcr.yml
+    with:
+      context: ./ethersrv
+      tags: ghcr.io/${{ github.repository_owner }}/ethersrv:latest
+    secrets: inherit
