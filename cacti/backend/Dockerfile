@@ -1,7 +1,7 @@
 FROM docker.io/php:8.3-fpm-bookworm
 
-ENV CACTI_URL="https://files.cacti.net/cacti/linux/cacti-1.2.27.tar.gz"
-ENV SPINE_URL="https://files.cacti.net/spine/cacti-spine-1.2.27.tar.gz"
+ENV CACTI_URL="https://files.cacti.net/cacti/linux/cacti-1.2.30.tar.gz"
+ENV SPINE_URL="https://files.cacti.net/spine/cacti-spine-1.2.30.tar.gz"
 
 # persistent / runtime deps
 RUN set -eux; \
@@ -68,7 +68,7 @@ RUN set -eux; \
     cd /usr/src; \
     curl -fsSL -o /usr/local/share/ca-certificates/lets-encrypt-r3.crt https://letsencrypt.org/certs/lets-encrypt-r3.pem; \
     update-ca-certificates --fresh; \
-    curl -fsSL -o cacti-spine.tar.gz "$SPINE_URL"; \
+    curl -fsSL -o cacti-spine.tar.gz -A "Mozilla/5.0" "$SPINE_URL"; \
     mkdir -p cacti-spine; \
     tar zxf cacti-spine.tar.gz -C cacti-spine --strip-components=1; \
     \

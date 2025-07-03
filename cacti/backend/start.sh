@@ -5,7 +5,7 @@ if [ ! -f "$CACTI_DIR/cactid.php" ]; then
   echo "Extract cacti files"
   mkdir -p /usr/src
   pushd /usr/src
-    curl -fsSL -o cacti.tar.gz "$CACTI_URL"
+    curl -fsSL -o cacti.tar.gz -A "Mozilla/5.0" "$CACTI_URL"
     tar zxf cacti.tar.gz -C "$CACTI_DIR" --strip-components=1
   popd
 fi
