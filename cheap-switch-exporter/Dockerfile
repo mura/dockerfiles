@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM golang:1.24-bookworm as build
+FROM golang:trixie AS build
 
 RUN <<EOF
 set -eux
@@ -24,7 +24,7 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
     -o ./cheap-switch-exporter
 EOF
 
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 WORKDIR /app
 
