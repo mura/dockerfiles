@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM golang:bookworm as build
+FROM golang:trixie AS build
 
 RUN <<EOF
 set -eux
@@ -19,12 +19,12 @@ export CGO_ENABLED=0
 go install github.com/mattn/goreman@latest
 EOF
 
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 # customizable values
-ENV RPC_PORT 6800
-ENV HTTPD_PORT 8080
-ENV USE_HTTPD true
+ENV RPC_PORT=6800
+ENV HTTPD_PORT=8080
+ENV USE_HTTPD=true
 
 # persistent / runtime deps
 RUN <<EOF
