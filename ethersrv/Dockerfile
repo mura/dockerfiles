@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM debian:bookworm as builder
+FROM debian:trixie AS builder
 
 RUN <<EOF
 set -eux
@@ -21,7 +21,7 @@ cd ethersrv-linux
 make
 EOF
 
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 WORKDIR /app
 VOLUME [ "/data" ]
