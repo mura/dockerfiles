@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 RUN <<EOF
   apt-get update
@@ -23,9 +23,9 @@ EOF
 VOLUME [ "/etc/ssh" ]
 EXPOSE 22
 
-ENV UID 1000
-ENV GROUP users
-ENV GROUPS users
-ENV LOGIN_SHELL /bin/bash
+ENV UID=1000
+ENV GROUP=users
+ENV GROUPS=users
+ENV LOGIN_SHELL=/bin/bash
 
 ENTRYPOINT [ "/app/entrypoint.sh" ]
