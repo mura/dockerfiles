@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM golang:1.23-bookworm as build
+FROM golang:bookworm as build
 
 RUN <<EOF
 set -eux
